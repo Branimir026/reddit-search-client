@@ -1,39 +1,27 @@
-import { React, useState } from "react";
+import { React } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
-function SearchForm() {
-  const [searchInput, setSearchInput] = useState("");
-
-  const searchInputHandler = (e) => {
-    setSearchInput(e.target.value);
-
-    e.preventDefault();
-  };
-
-  const handleSubmit = (e) => {
-    const check = document.querySelector('input[type="radio"]:checked').value;
-    console.log(check);
-    e.preventDefault();
-  };
-
+function SearchForm({ input, inputHandler, submitHandler }) {
   return (
     <Container>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={submitHandler}>
         <Form.Group className="mb-3" controlId="searchInput">
           <Form.Label>Search Reddit</Form.Label>
           <Form.Control
+            required
             type="text"
             placeholder="Search..."
-            value={searchInput}
-            onChange={searchInputHandler}
+            value={input}
+            onChange={inputHandler}
           />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Radios</Form.Label>
+          <Form.Label>Sort By:</Form.Label>
           <Form.Check
             inline
+            defaultChecked
             type="radio"
             label="Relevant"
             name="formHorizontalRadios"
