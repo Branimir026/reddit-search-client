@@ -1,12 +1,12 @@
 import "./App.css";
 import Navigation from "./Components/Navigation";
-import SearchForm from "./Components/SearchForm";
+import SearchFormLogic from "./Components/SearchFormLogic";
 
 function App() {
   return (
     <>
       <Navigation />
-      <SearchForm />
+      <SearchFormLogic />
     </>
   );
 }
